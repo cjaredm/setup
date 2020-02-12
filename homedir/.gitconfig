@@ -1,0 +1,5 @@
+[user]
+	name = Jared Mortenson
+	email = cjared.mortenson@gmail.com
+[core]
+	editor = code --wait

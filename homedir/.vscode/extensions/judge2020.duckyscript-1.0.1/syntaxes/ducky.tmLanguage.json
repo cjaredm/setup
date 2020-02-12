@@ -1,0 +1,33 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ducky script",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ducky",
+				"match": "\\b(REM|GUI|DEFAULT_DELAY|DELAY|STRING|GUI|WINDOWS|APP|MENU|SHIFT|ALT|CONTROL|DOWNARROW|DOWN|LEFT|LEFTARROW|RIGHTARROW|RIGHT|UPARROW|UP|BREAK|PAUSE|CAPSLOCK|DELETE|END|ESC|ESCAPE|HOME|INSERT|NUMLOCK|PAGEUP|PAGEDOWN|PRINTSCREEN|SCROLLLOCK|SPACE|TAB|REPLAY)\\b",
+				"comment": "REM"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.ducky",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ducky",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.ducky"
+}

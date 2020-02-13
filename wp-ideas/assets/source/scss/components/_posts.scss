@@ -1,0 +1,103 @@
+//--------------------------------------------------------------
+// POSTS
+//--------------------------------------------------------------
+
+//-----------------------------------------
+// Title
+//-----------------------------------------
+// <h2>
+.post-title {
+}
+
+//-----------------------------------------
+// Thumbnail
+//-----------------------------------------
+.post-thumbnail {
+}
+
+//-----------------------------------------
+// Date
+//-----------------------------------------
+.post-date {
+}
+
+//-----------------------------------------
+// Categories
+//-----------------------------------------
+.post-categories {
+  a {
+    background-color: $color-tertiary;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: small;
+  }
+}
+
+//-----------------------------------------
+// Excerpt
+//-----------------------------------------
+.post-excerpt {
+}
+
+//-----------------------------------------
+// Tags
+//-----------------------------------------
+.post-tags {
+  margin-bottom: $global-spacing;
+
+  span {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+
+    a {
+      background-color: $color-primary;
+      border-radius: $global-radius;
+      color: $color-white;
+      display: block;
+      font-size: rem-calc(14);
+      padding: 5px 8px;
+
+      &:focus,
+      &:hover {
+        background-color: $color-secondary;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+//-----------------------------------------
+// Sidebar
+//-----------------------------------------
+#blog .blog__sidebar,
+#blog__post .blog__sidebar {
+  padding: 0 20px;
+
+  @media (min-width: $mq-laptop) {
+    padding: 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      line-height: 1.2;
+      a {
+        word-break: break-word !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+}
+
+.post__footer {
+  width: 100%;
+  max-width: $global-width;
+  padding: 0 20px;
+  margin: 0 auto 20px;
+  div {
+    margin-bottom: 10px;
+    h5 {
+      margin-bottom: 5px;
+    }
+  }
+}

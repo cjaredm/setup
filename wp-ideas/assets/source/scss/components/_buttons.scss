@@ -1,0 +1,95 @@
+//--------------------------------------------------------------
+// BUTTONS
+//--------------------------------------------------------------
+.wp-block-button a,
+.button {
+	// RESET WP ADMIN STYLES
+	border: 0 solid transparent !important;
+	border-radius: 0 !important;
+	background-color: $color-primary !important;
+	color: $color-white !important;
+	font-size: $font-size-content !important;
+
+	appearance: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	margin: 0;
+	padding: 10px 15px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.25s ease-out, color 0.25s ease-out;
+	width: fit-content;
+	height: 60px;
+	font-weight: $font-weight-bold;
+	white-space: nowrap;
+
+	&:focus,
+	&:hover {
+		background-color: lighten($color-primary, 10%) !important;
+		color: $color-white !important;
+	}
+
+	&--secondary {
+		background-color: $color-secondary !important;
+		color: $color-white !important;
+
+		&:focus,
+		&:hover {
+			background-color: lighten($color-secondary, 10%) !important;
+			color: $color-white !important;
+		}
+	}
+
+	&--tertiary {
+		background-color: $color-tertiary !important;
+		color: $color-white !important;
+
+		&:focus,
+		&:hover {
+			background-color: lighten($color-tertiary, 10%) !important;
+			color: $color-white !important;
+		}
+	}
+
+	&--full-width {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&--outlined {
+		background-color: transparent !important;
+		border: 1px solid $color-secondary !important;
+		color: $color-secondary !important;
+
+		&:focus,
+		&:hover {
+			background-color: $color-secondary !important;
+			color: $color-white !important;
+		}
+	}
+
+	&--text {
+		background-color: transparent !important;
+		border: 0;
+
+		&:focus,
+		&:hover {
+			background-color: transparent !important;
+			color: initial !important;
+		}
+	}
+
+	&--no-expand {
+		width: auto;
+	}
+
+	&[disabled] {
+		cursor: default;
+		opacity: 0.75;
+	}
+}

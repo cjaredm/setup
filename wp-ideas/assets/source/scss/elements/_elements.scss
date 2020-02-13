@@ -1,0 +1,495 @@
+//--------------------------------------------------------------
+// ELEMENTS
+//--------------------------------------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: $color-white;
+  color: $color-black;
+  font-family: $font-family-body;
+  font-size: $font-size-content;
+  font-weight: $font-weight-normal;
+  line-height: 1.5;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+//-----------------------------------------
+// Headings
+//-----------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-black;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+}
+
+h1 {
+  font-size: rem-calc(45);
+}
+
+h2 {
+  font-size: rem-calc(40);
+}
+
+h3 {
+  font-size: rem-calc(26);
+}
+
+h4 {
+  font-size: rem-calc(22);
+}
+
+h5 {
+  font-size: rem-calc(18);
+}
+
+h6 {
+  font-size: rem-calc(16);
+}
+
+//-----------------------------------------
+// Paragraph
+//-----------------------------------------
+p {
+  font-size: $font-size-content;
+  margin: 0;
+  word-break: break-word;
+}
+
+//-----------------------------------------
+// List
+//-----------------------------------------
+ul,
+ol,
+dl {
+  font-size: $font-size-content;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Unordered List
+ul {
+}
+
+// Ordered List
+ol {
+}
+
+// Definition List
+dl {
+}
+
+//-----------------------------------------
+// List Item
+//-----------------------------------------
+li {
+}
+
+// Unordered List Item
+ul {
+  li {
+  }
+}
+
+// Ordered List Item
+ol {
+  li {
+  }
+}
+
+// Definition List
+dl {
+  // Definition Term
+  dt {
+  }
+
+  // Definition Name
+  dd {
+  }
+}
+
+//-----------------------------------------
+// Blockquote
+//-----------------------------------------
+blockquote {
+}
+
+//-----------------------------------------
+// Cite
+//-----------------------------------------
+cite {
+}
+
+//-----------------------------------------
+// Horizontal Rule
+//-----------------------------------------
+hr {
+  border-bottom: 0;
+  border-top: 2px solid $color-theme-black;
+  margin: 0 0 $global-spacing 0;
+}
+
+//-----------------------------------------
+// Table
+//-----------------------------------------
+table {
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  width: 100%;
+
+  caption {
+    font-weight: $font-weight-bold;
+    padding: 10px;
+  }
+
+  thead {
+    background-color: $color-primary;
+    color: $color-white;
+
+    th {
+      font-weight: $font-weight-bold;
+      padding: 10px;
+      text-align: left;
+      word-break: break-all;
+    }
+  }
+
+  tfoot {
+    background-color: $color-primary;
+    color: $color-white;
+
+    th {
+      font-weight: $font-weight-bold;
+      padding: 10px;
+      text-align: left;
+      word-break: break-all;
+    }
+  }
+
+  tbody {
+    tr {
+      background-color: transparent;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-primary;
+      }
+
+      &:nth-child(even) {
+        background-color: $color-gray;
+      }
+
+      &:nth-child(odd) {
+        background-color: $color-white;
+      }
+    }
+
+    td {
+      font-weight: $font-weight-bold;
+      padding: 10px;
+      text-align: left;
+      word-break: break-all;
+    }
+  }
+
+  &--scroll {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+//-----------------------------------------
+// Form
+//-----------------------------------------
+form {
+}
+
+//-----------------------------------------
+// Fieldset
+//-----------------------------------------
+fieldset {
+  border: 1px solid $color-theme-black;
+  border-radius: $global-radius;
+  font-size: $font-size-content;
+  padding: 10px;
+  width: 100%;
+}
+
+//-----------------------------------------
+// Legend
+//-----------------------------------------
+legend {
+  font-weight: $font-weight-normal;
+}
+
+//-----------------------------------------
+// Label
+//-----------------------------------------
+label {
+  display: block;
+  font-weight: $font-weight-bold;
+}
+
+//-----------------------------------------
+// Input
+//-----------------------------------------
+input {
+  border: 1px solid $color-theme-black;
+  border-radius: $global-radius;
+  font-size: $font-size-content;
+  padding: 10px;
+  width: 100%;
+
+  &[type='date'],
+  &[type='month'] {
+    padding: 7px;
+  }
+
+  &[type='radio'],
+  &[type='checkbox'] {
+    width: auto;
+  }
+}
+
+//-----------------------------------------
+// Textarea
+//-----------------------------------------
+textarea {
+  border: 1px solid $color-theme-black;
+  border-radius: $global-radius;
+  font-family: inherit;
+  font-size: $font-size-content;
+  padding: 10px;
+  width: 100%;
+}
+
+//-----------------------------------------
+// Select Dropdown
+//-----------------------------------------
+select {
+  @include background-image(
+    'icon-arrow-down.svg',
+    $position: right 10px center,
+    $size: 16px
+  );
+
+  appearance: none;
+  border: 1px solid $color-theme-black;
+  border-radius: $global-radius;
+  font-size: $font-size-content;
+  padding: 10px 35px 10px 10px;
+  width: 100%;
+}
+
+//-----------------------------------------
+// Anchor
+//-----------------------------------------
+a {
+  background-color: transparent;
+  color: $color-primary;
+  cursor: pointer;
+  outline: 0;
+  text-decoration: none;
+  word-break: break-word;
+
+  &:focus {
+    outline: 5px auto;
+  }
+
+  &:focus,
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+//-----------------------------------------
+// Image
+//-----------------------------------------
+img {
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+//-----------------------------------------
+// Strong Importance
+// For SEO usage.
+//-----------------------------------------
+strong {
+  font-weight: $font-weight-bold;
+}
+
+//-----------------------------------------
+// Bold
+//-----------------------------------------
+b {
+  font-weight: $font-weight-bold;
+}
+
+//-----------------------------------------
+// Emphasis
+// For SEO usage.
+//-----------------------------------------
+em {
+  font-style: italic;
+}
+
+//-----------------------------------------
+// Italic
+//-----------------------------------------
+i {
+  font-style: italic;
+}
+
+//-----------------------------------------
+// Underlined
+//-----------------------------------------
+u {
+  text-decoration: underline;
+}
+
+//-----------------------------------------
+// Higher
+//-----------------------------------------
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+}
+
+//-----------------------------------------
+// Lower
+//-----------------------------------------
+sub {
+  bottom: -0.25em;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+//-----------------------------------------
+// Small Print
+//-----------------------------------------
+small {
+  font-size: rem-calc(12);
+}
+
+//-----------------------------------------
+// Text Selection
+//-----------------------------------------
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+  text-shadow: none;
+}
+
+//-----------------------------------------
+// Text Placeholder
+//-----------------------------------------
+::placeholder {
+  font-weight: $font-weight-light;
+}
+
+//-----------------------------------------
+// SVG
+//-----------------------------------------
+svg:not(:root) {
+  overflow: hidden;
+}
+
+//-----------------------------------------
+// Button
+//-----------------------------------------
+button {
+  cursor: pointer;
+  font: inherit;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  & > * {
+    pointer-events: none;
+  }
+}
+
+//-----------------------------------------
+// Figure
+//-----------------------------------------
+figure {
+  margin-top: 0;
+}
+
+//-----------------------------------------
+// Code
+//-----------------------------------------
+code {
+  background-color: $color-theme-black;
+  color: $color-theme-white;
+  display: inline;
+  padding: 2px 8px;
+}
+
+//-----------------------------------------
+// Preformatted
+//-----------------------------------------
+pre {
+  background-color: $color-theme-black;
+  color: $color-theme-white;
+  margin: 0 0 $global-spacing 0;
+  max-width: 100%;
+  min-width: 100px;
+  overflow: hidden;
+
+  code {
+    display: block;
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 100%;
+    min-width: 100px;
+    overflow-x: auto;
+    padding: 30px;
+  }
+}
+
+//-----------------------------------------
+// Details
+//-----------------------------------------
+details {
+}
+
+//-----------------------------------------
+// Summary
+//-----------------------------------------
+summary {
+  cursor: pointer;
+  display: inline-block;
+}
+
+//-----------------------------------------
+// Iframe
+//-----------------------------------------
+iframe {
+  @include mq($mq-tablet, false) {
+    width: 100%;
+  }
+}

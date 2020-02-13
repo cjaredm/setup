@@ -1,0 +1,20 @@
+//--------------------------------------------------------------
+// INDEX
+//--------------------------------------------------------------
+
+@import '../functions/index';
+@import '../settings/index';
+@import '../mixins/index';
+//@import '../components/block-';
+
+// Gutenberg Block Editor
+.wp-block {
+  max-width: 1140px;
+}
+
+.inetz-theme-styles-entry {
+  @import '../helpers/helpers';
+  @import '../components/buttons';
+  @import '../mixins/media-query';
+  @import '../settings/settings';
+}

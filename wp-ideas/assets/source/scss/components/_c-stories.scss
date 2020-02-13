@@ -1,0 +1,170 @@
+//--------------------------------------------------------------
+// Stories Managed Content
+//--------------------------------------------------------------
+.g-row.c-stories__managed-content {
+  position: relative;
+  width: 100vw;
+
+  background-color: $color-gray;
+  max-width: 100%;
+
+  article {
+    margin: 0 auto;
+    max-width: $global-width;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    color: $color-white;
+  }
+}
+
+//--------------------------------------------------------------
+// STORIES
+//--------------------------------------------------------------
+
+.c-stories {
+  $stories: &;
+
+  background-color: $color-gray;
+  color: $color-white;
+  padding: 60px 0;
+
+  &__row {
+    @include mq($mq-tablet, false) {
+      padding: 0;
+    }
+  }
+
+  &__heading {
+    color: $color-white;
+    font-weight: $font-weight-semi-bold;
+  }
+
+  &__description {
+    font-size: rem-calc(16);
+    font-weight: $font-weight-semi-bold;
+    margin: 0 auto 5px;
+    max-width: 800px;
+  }
+
+  &__cite {
+    color: $color-white;
+    font-size: rem-calc(12);
+  }
+
+  // <ul>
+  &__stories {
+    display: flex; // IE 11
+    display: grid;
+    flex-wrap: wrap; // IE 11
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    margin: 30px 0;
+
+    @include mq($mq-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // <li>
+  &__story {
+    max-width: 430px; // IE 11
+    width: 100%; // IE 11
+
+    // IE 11
+    @supports (display: grid) {
+      max-width: initial;
+      width: auto;
+    }
+  }
+
+  // <a>
+  &__link {
+    align-items: center;
+    background-color: $color-white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    max-height: 422px;
+
+    @include mq($mq-tablet) {
+      margin: 5px;
+    }
+
+    &:focus,
+    &:hover {
+      #{$stories}__content {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__content {
+    align-items: center;
+    background-color: rgba($color-tertiary, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    padding: $global-padding;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+  }
+
+  &__content-heading {
+    color: $color-white;
+  }
+
+  &__content-text {
+    color: $color-primary;
+    font-size: rem-calc(18);
+    font-weight: $font-weight-bold;
+  }
+}
+
+//-----------------------------------------
+// Actions
+//-----------------------------------------
+.c-stories {
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mq($mq-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__action {
+    max-width: 250px;
+    min-width: 250px;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+
+      @include mq($mq-tablet) {
+        margin: 0 15px 0 0;
+      }
+    }
+  }
+}

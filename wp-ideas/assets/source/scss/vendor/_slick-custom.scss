@@ -1,0 +1,214 @@
+//--------------------------------------------------------------
+// SLICK CUSTOM
+//--------------------------------------------------------------
+// Home Page Settings
+
+.home {
+	.slick-slider__slide {
+		height: 45rem;
+	}
+
+	.slick-slider__heading {
+		font-size: rem-calc(50);
+
+		@include mq($mq-global-width) {
+			font-size: rem-calc(72);
+		}
+	}
+
+	.slick-slider__sub-heading {
+		font-size: 20px;
+		@include mq($mq-tablet) {
+			margin: 0 auto 28px;
+		}
+		@include mq($mq-laptop) {
+			font-size: 28px;
+		}
+		@include mq($mq-laptop-large) {
+			font-size: 32px;
+		}
+	}
+}
+
+// Events Calendar Page Settings
+.tribe-events-page-title {
+	margin-top: 20px;
+}
+//-----------------------------------------
+// Slick Slider
+//-----------------------------------------
+.slick-slider {
+	position: relative;
+	width: 100%;
+
+	&.slick-dotted {
+		margin-bottom: 0;
+	}
+
+	&__slide {
+		height: 25rem;
+		width: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex !important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 10px;
+		text-align: center;
+		width: 100%;
+	}
+
+	&__heading {
+		color: $color-white;
+		font-family: $font-family-heading;
+		font-size: rem-calc(40);
+		font-weight: $font-weight-extra-bold;
+		line-height: 1.1;
+		margin: 0 auto 20px;
+		max-width: 90%;
+		text-shadow: 0 0 9px rgba($color-black, 0.5);
+		z-index: 2;
+
+		@include mq($mq-global-width) {
+			font-size: rem-calc(50);
+		}
+	}
+
+	&__sub-heading {
+		color: $color-white;
+		font-size: rem-calc(30);
+		font-weight: $font-weight-normal;
+		line-height: 1.1;
+		margin: 0 auto 15px;
+		text-align: center;
+		text-shadow: 0 0 9px rgba($color-black, 0.5);
+		z-index: 2;
+
+		@include mq($mq-global-width) {
+			font-size: rem-calc(40);
+		}
+	}
+
+	&__link {
+		justify-self: center;
+		max-width: 250px;
+	}
+
+	&__image {
+		@include mq($mq-tablet, false) {
+			height: 480px;
+			object-fit: cover;
+		}
+	}
+}
+
+//-----------------------------------------
+// Slick Theme
+//-----------------------------------------
+.slick-prev,
+.slick-next {
+	z-index: 99;
+}
+
+.slick-prev {
+	left: 20px;
+}
+
+.slick-next {
+	right: 20px;
+}
+
+.slick-dots {
+	bottom: 15px;
+	display: none !important;
+	margin: 0;
+
+	@include mq($mq-laptop-large) {
+		display: block !important;
+	}
+
+	li {
+		&.slick-active {
+			button {
+				background-color: $color-white;
+
+				&::before {
+					color: $color-white;
+				}
+			}
+		}
+
+		button {
+			background-color: rgba($color-primary, 0.50);
+			border-radius: 50%;
+			height: inherit;
+			width: inherit;
+
+			&:focus,
+			&:hover {
+				background-color: $color-white;
+			}
+
+			&::before {
+				border-radius: 50%;
+				color: transparent;
+				font-size: rem-calc(20);
+			}
+		}
+	}
+}
+
+//-----------------------------------------
+// Slick
+//-----------------------------------------
+.slick-slide {
+	height: auto;
+	img {
+		// background-size: cover;
+		display: block;
+		// width: 100%;
+	}
+}
+
+//-----------------------------------------
+// Custom Buttons
+//-----------------------------------------
+.custom-slider {
+	background-color: $color-secondary;
+	border-bottom: 10px $color-secondary solid;
+
+	// Slide Buttons
+	.slick-prev,
+	.slick-next {
+		background-color: $color-primary;
+		color: $color-white;
+		display: none !important;
+		font-size: initial;
+		height: auto;
+		left: 100px;
+		padding: 12px 16px;
+		right: initial;
+
+		@include mq($mq-laptop) {
+			display: block !important;
+		}
+
+		&::before {
+			display: none;
+		}
+
+		&:focus,
+		&:hover {
+			background-color: $color-secondary;
+			color: $color-white;
+		}
+	}
+
+	.slick-next {
+		left: initial;
+		right: 100px;
+	}
+}

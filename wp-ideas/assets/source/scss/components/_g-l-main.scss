@@ -1,0 +1,13 @@
+//--------------------------------------------------------------
+// GLOBAL LAYOUT MAIN
+//--------------------------------------------------------------
+
+.g-l-main {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+
+  article.wysiwg-content {
+    padding-top: 0;
+  }
+}

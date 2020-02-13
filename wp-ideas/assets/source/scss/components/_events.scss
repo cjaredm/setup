@@ -1,0 +1,75 @@
+//--------------------------------------------------------------
+// EVENTS
+//--------------------------------------------------------------
+
+.events {
+	background-color: $color-primary;
+	padding: 15px 0 60px;
+
+	@include mq($mq-tablet) {
+		padding: 50px 0;
+	}
+
+	&__heading {
+		color: $color-white;
+		margin-bottom: 45px;
+		text-align: center;
+	}
+
+	&__row {
+	}
+
+	// <ul>
+	&__events {
+		display: grid;
+		gap: 30px;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	}
+
+	// <li>
+	&__event {
+	}
+
+	&__container {
+		display: grid;
+		gap: $global-spacing;
+		margin: 0 auto;
+		max-width: 1480px;
+
+		@include mq($mq-tablet) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__content {
+		align-self: center;
+	}
+
+	&__event-date {
+		display: block;
+		font-size: rem-calc(18);
+		font-weight: $font-weight-semi-bold;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+	}
+
+	&__event-title {
+		font-size: rem-calc(32);
+		font-weight: $font-weight-bold;
+		margin-bottom: 30px;
+	}
+
+	&__image {
+		width: fit-content;
+		margin: auto;
+		img {
+			max-height: 500px;
+			width: auto;
+		}
+	}
+
+	.slick-next:before,
+	.slick-prev:before {
+		font-size: 60px;
+	}
+}

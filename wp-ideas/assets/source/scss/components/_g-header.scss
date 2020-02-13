@@ -1,0 +1,269 @@
+//--------------------------------------------------------------
+// GLOBAL HEADER
+//--------------------------------------------------------------
+
+.g-header {
+	position: relative;
+	width: 100%;
+	z-index: 110; // Above slider arrows for mobile menu.
+
+	&__top-bar {
+		align-items: center;
+		background-color: $color-mercury;
+		display: flex;
+		font-size: small;
+		height: 40px;
+		justify-content: center;
+		padding: 0 10px;
+		text-align: center;
+
+		@include mq($mq-mobile-large) {
+			padding: 0 10px;
+		}
+		@include mq($mq-tablet) {
+			justify-content: space-between;
+			text-align: right;
+		}
+		@include mq($mq-laptop) {
+			font-size: inherit;
+		}
+		@include mq($mq-laptop-large) {
+			padding: 0 50px;
+		}
+
+		.g-header__top-bar--align-right {
+			align-self: center;
+			text-align: right;
+		}
+	}
+
+	&__container {
+		align-items: center;
+		background-color: $color-white;
+		display: flex; // IE 11
+		display: grid;
+		grid-template-columns: auto 1fr;
+
+		@include mq($mq-mobile-large) {
+		}
+		@include mq($mq-tablet) {
+			padding: 0 $global-padding;
+		}
+		@include mq($mq-laptop-large) {
+			padding: 0 50px;
+		}
+	}
+
+	&__logo-container {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+
+		@include mq($mq-tablet, false) {
+			padding-left: 10px;
+		}
+	}
+
+	&__logo {
+		align-items: center;
+		display: flex;
+		margin-right: 20px;
+		max-height: 55px;
+
+		svg {
+			fill: $color-primary;
+			width: 175px;
+
+			@include mq($mq-tablet) {
+				width: 300px;
+			}
+		}
+	}
+
+	&__logo_phone {
+		align-self: center;
+		color: $color-primary;
+		font-size: rem-calc(16);
+		white-space: nowrap;
+
+		@include mq($mq-mobile-large) {
+			font-size: rem-calc(25);
+		}
+	}
+
+	&__navigation {
+		align-items: center;
+		display: flex;
+		flex: 1;
+		margin-left: 15px;
+		z-index: 110;
+
+		@include mq($mq-laptop-large, false) {
+			position: relative;
+		}
+
+		.navigation {
+			display: flex;
+			flex: 1;
+			justify-content: flex-end;
+		}
+	}
+
+	&__search-container {
+		margin-left: 45px;
+
+		@include mq($mq-laptop-large, false) {
+			display: none;
+		}
+	}
+
+	&__search-form {
+		background-color: $color-tertiary;
+		border-left: 1px solid $color-theme-black;
+		display: none;
+		height: 100px;
+		padding: 0 20px;
+		position: absolute;
+		right: 210px;
+		top: 0;
+		z-index: 110;
+
+		&.is-active {
+			display: block;
+		}
+	}
+}
+
+//-----------------------------------------
+// Register
+//-----------------------------------------
+.g-header {
+	&__register {
+		@include background-image('decor-circle-arrow.png', $position: right -35px center, $size: initial);
+
+		align-items: center;
+		background-color: $color-tertiary;
+		display: flex;
+		flex-direction: column;
+		height: 100px; // IE 11
+		justify-content: center;
+		margin-left: 45px; // IE 11
+		min-height: 100px;
+		min-width: 210px; // IE 11
+
+		@include mq($mq-tablet, false) {
+			align-items: flex-end;
+			grid-column: span 2;
+			padding-right: $global-padding;
+		}
+
+		// IE 11
+		@supports (display: grid) {
+			height: initial;
+			margin-left: initial;
+			min-width: initial;
+		}
+	}
+
+	&__register-title {
+		color: $color-white;
+		font-size: rem-calc(20);
+		font-weight: $font-weight-bold;
+		text-transform: uppercase;
+	}
+
+	&__register-actions {
+		display: flex;
+	}
+
+	&__register-text {
+		color: $color-primary;
+		font-size: rem-calc(14);
+		font-weight: $font-weight-semi-bold;
+	}
+
+	// <ul>
+	&__register-links {
+		display: flex;
+		margin-left: 5px;
+	}
+
+	// <li>
+	&__register-item {
+		font-size: rem-calc(14);
+		font-weight: $font-weight-semi-bold;
+
+		&:not(:last-child) {
+			&::after {
+				color: $color-primary;
+				content: '|';
+				margin: 0 2px;
+			}
+		}
+	}
+
+	// <a>
+	&__register-link {
+		color: $color-white;
+	}
+}
+
+//-----------------------------------------
+// Language
+//-----------------------------------------
+.g-header {
+	&__language {
+		.glink {
+			color: $color-black;
+			font-size: rem-calc(14);
+			font-weight: $font-weight-semi-bold;
+
+			&:not(:last-of-type) {
+				&::after {
+					color: $color-black;
+					content: '|';
+					margin: 0 2px;
+				}
+			}
+
+			&:focus,
+			&:hover {
+				color: $color-tertiary;
+			}
+
+			&.is-active {
+				font-weight: $font-weight-extra-bold;
+			}
+		}
+
+		// Modifiers
+		&--wide {
+			display: none;
+
+			@include mq($mq-tablet) {
+				display: flex;
+			}
+		}
+
+		&--narrow {
+			display: flex;
+			flex: 1;
+			justify-content: flex-end;
+			margin: 5px 10px 0 0;
+
+			@include mq($mq-tablet) {
+				display: none;
+			}
+		}
+	}
+}
+
+//-----------------------------------------
+// IE 11
+//-----------------------------------------
+.ie11-alert {
+	background-color: $color-error;
+	color: $color-white;
+	padding: 10px 0;
+	text-align: center;
+}

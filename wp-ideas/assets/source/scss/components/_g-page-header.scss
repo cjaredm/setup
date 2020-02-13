@@ -1,0 +1,32 @@
+//--------------------------------------------------------------
+// GLOBAL PAGE HEADER
+//--------------------------------------------------------------
+
+.g-page-header {
+	margin-top: 20px;
+	margin-bottom: 30px;
+
+	&--no-margin {
+		margin-bottom: 0;
+	}
+
+	&__background {
+		align-items: center;
+		height: 324px; // IE 11
+		min-height: 324px;
+
+		@supports (display: grid) {
+			height: auto;
+		}
+
+		&.lazyloaded {
+			display: flex;
+		}
+	}
+
+	&__content {
+		margin: auto;
+		max-width: 730px;
+		text-align: center;
+	}
+}

@@ -1,0 +1,261 @@
+//--------------------------------------------------------------
+// NAVIGATION
+//--------------------------------------------------------------
+
+.navigation {
+	position: relative;
+	z-index: 99;
+}
+
+//-----------------------------------------
+// Menu
+//-----------------------------------------
+.navigation {
+	// <ul>
+	&__menu {
+		align-items: center;
+		display: none;
+		flex: 1;
+		justify-content: space-between;
+		margin: 0;
+		max-width: 1000px;
+		padding: 0;
+
+		@include mq($mq-laptop-large) {
+			display: flex;
+		}
+
+		// Top menu links.
+		& > .navigation__item > a {
+			border-bottom: 10px solid transparent;
+			text-transform: uppercase;
+
+			&:focus,
+			&:hover {
+				border-bottom-color: $color-secondary;
+			}
+		}
+	}
+
+	// <li>
+	&__item {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+
+		// Current page link.
+		&.current-menu-item {
+		}
+
+		// Button looking class, added manually via menus.
+		&.fill {
+			& > a {
+				background-color: $color-secondary;
+				border: 0;
+				color: $color-white;
+				padding: 10px 20px;
+
+				&:focus,
+				&:hover {
+					background-color: lighten($color-secondary, 10%);
+					color: $color-white;
+				}
+			}
+		}
+	}
+
+	// <a>
+	a {
+		color: $color-theme-black;
+		display: block;
+		font-size: rem-calc(16);
+		font-weight: $font-weight-bold;
+		white-space: nowrap;
+
+		@include mq($mq-laptop-large) {
+			padding: 20px 0 10px;
+		}
+	}
+}
+
+//-----------------------------------------
+// Menu - Sub Menu - Parent
+//-----------------------------------------
+.navigation {
+	$nav: &;
+
+	// <li>
+	&__sub-menu-parent {
+		&:hover {
+			// Keep parent <li> appearing hovered.
+			& > a {
+				border-bottom-color: $color-secondary;
+				color: $color-theme-black;
+			}
+
+			#{$nav}__sub-menu {
+				display: block;
+			}
+		}
+	}
+}
+
+//-----------------------------------------
+// Menu - Sub Menu
+//-----------------------------------------
+.navigation {
+	$nav: &;
+
+	&__sub-menu {
+		box-shadow: 0 2px 3px 0 rgba($color-theme-black, 0.3);
+		display: none;
+		left: 0;
+		margin: 0;
+		// min-width: 300px;
+		padding: 0;
+		position: absolute;
+		z-index: 98;
+
+		a {
+			color: $color-theme-black;
+			display: block;
+			font-size: rem-calc(17);
+			font-weight: $font-weight-semi-bold;
+			padding: 15px 0;
+			white-space: nowrap;
+
+			&:focus,
+			&:hover {
+				box-shadow: none;
+				color: $color-secondary;
+			}
+		}
+
+		#{$nav}__item {
+			background-color: $color-white;
+			padding: 0 20px;
+
+			&:not(:last-child) {
+				a {
+					border-bottom: 1px solid lighten($color-gray, 35%);
+				}
+			}
+
+			a {
+				padding: 15px;
+			}
+		}
+	}
+}
+
+//-----------------------------------------
+// Menu - Description
+//-----------------------------------------
+.navigation {
+	&__description {
+		display: block;
+		font-size: rem-calc(9);
+		padding-left: 5px;
+	}
+}
+
+//-----------------------------------------
+// Menu - Active
+//-----------------------------------------
+.navigation {
+	$nav: &;
+
+	&__menu.is-active {
+		background-color: $color-primary;
+		display: block;
+		height: 100%;
+		left: 0;
+		min-width: 230px;
+		overflow-y: auto;
+		position: fixed;
+		top: 0;
+		z-index: 99;
+
+		li {
+			a {
+				border: 0;
+				padding: 10px;
+
+				&:focus,
+				&:hover {
+					color: $color-tertiary;
+				}
+			}
+		}
+
+		& > li {
+			border-bottom: 1px solid $color-white;
+
+			& > a {
+				color: $color-theme-white;
+			}
+		}
+
+		#{$nav}__sub-menu {
+			box-shadow: none;
+		}
+	}
+}
+
+//-----------------------------------------
+// Menu - Active - Sub Menu
+//-----------------------------------------
+.navigation {
+	$nav: &;
+
+	&__menu.is-active {
+		#{$nav}__sub-menu {
+			display: block;
+			position: relative;
+		}
+	}
+}
+
+//-----------------------------------------
+// Menu Trigger
+//-----------------------------------------
+.navigation {
+	&__menu-trigger {
+		background-color: transparent;
+		color: $color-theme-black;
+		cursor: pointer;
+		display: block;
+		font-size: rem-calc(30);
+		line-height: 1;
+		margin-left: auto;
+		padding: 10px;
+
+		@include mq($mq-laptop-large) {
+			display: none;
+		}
+
+		&:focus,
+		&:hover {
+			background-color: transparent;
+			color: $color-theme-black;
+		}
+	}
+}
+
+//-----------------------------------------
+// Overlay
+//-----------------------------------------
+.navigation {
+	&__overlay {
+		background-color: rgba($color-black, 0.7);
+		bottom: 0;
+		display: block;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 100%;
+		z-index: 98;
+	}
+}

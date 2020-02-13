@@ -1,0 +1,241 @@
+//--------------------------------------------------------------
+// GLOBAL FOOTER
+//--------------------------------------------------------------
+
+.g-footer {
+	background-color: $color-tertiary;
+	color: $color-theme-white;
+	width: 100%;
+
+	&__main {
+		padding: 50px 15px 40px;
+
+		@include mq($mq-tablet) {
+			padding: 50px 50px 40px;
+		}
+		@include mq($mq-laptop-large) {
+			padding: 50px 75px 40px;
+		}
+	}
+
+	&__main-row {
+		display: flex; // IE 11
+		display: grid;
+		gap: 20px;
+		grid-template-areas: 'contact contact'
+		'quicklinks register'
+		'social social';
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between; // IE 11
+		margin-bottom: 50px;
+
+		@include mq($mq-laptop) {
+			gap: 20px;
+			grid-template-areas: 'contact quicklinks register social';
+			grid-template-columns: 33% 15% 15% 1fr;
+		}
+		@include mq($mq-laptop-large) {
+			gap: 20px 90px;
+		}
+	}
+
+	&__title {
+		color: $color-secondary;
+		font-size: rem-calc(14);
+		font-weight: $font-weight-bold;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+
+		&--less-margin {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__copyright {
+		font-size: rem-calc(14);
+		text-align: center;
+	}
+}
+
+//-----------------------------------------
+// Contact
+//-----------------------------------------
+.g-footer {
+	&__contact-container {
+		grid-area: contact;
+	}
+
+	&__contact {
+		display: inline-block;
+
+		@include mq($mq-laptop-large, false) {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	&__contact-text {
+		margin-right: 5px;
+	}
+
+	&__logo-container {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 25px;
+
+		@include mq($mq-tablet, false) {
+			padding-left: 10px;
+		}
+		@include mq($mq-laptop-large) {
+			max-width: 375px;
+		}
+	}
+
+	&__logo {
+		align-items: center;
+		display: flex;
+		margin-right: 20px;
+		max-height: 55px;
+
+		svg {
+			fill: $color-white;
+			width: 200px;
+		}
+	}
+
+	&__logo_phone {
+		align-self: center;
+		color: $color-white;
+		font-size: rem-calc(20);
+		white-space: nowrap;
+	}
+
+	&__donor-connect {
+		align-items: center;
+		display: flex;
+		flex-direction: column-reverse;
+		font-size: rem-calc(14);
+		margin-bottom: 22px;
+
+		@include mq($mq-laptop-large) {
+			flex-direction: row;
+		}
+
+		&-img {
+			height: 50px;
+			margin: 0 auto 20px;
+
+			@include mq($mq-laptop-large) {
+				height: 60px;
+				margin: 0 0 0 30px;
+			}
+		}
+	}
+
+	&__address {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		@include mq($mq-laptop-large) {
+			display: block;
+		}
+	}
+
+	&__contact-info {
+		* {
+			font-size: rem-calc(14);
+		}
+	}
+}
+
+//-----------------------------------------
+// Menus
+//-----------------------------------------
+.g-footer-quickLinks {
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	grid-area: quicklinks;
+
+	@include mq($mq-laptop-large) {
+		align-items: flex-start;
+	}
+}
+
+.g-footer-register {
+	grid-area: register;
+}
+
+.g-footer {
+	&__navigation {
+		.navigation__menu {
+			display: block;
+			margin-top: 20px;
+
+			.navigation__item {
+				display: block;
+				margin-bottom: 15px;
+				width: fit-content;
+
+				a {
+					border: 0;
+					color: $color-white;
+					display: block;
+					font-size: rem-calc(14);
+					font-weight: $font-weight-bold;
+					height: auto;
+					padding: 0;
+					text-transform: none;
+					white-space: nowrap;
+
+					&:focus,
+					&:hover {
+						color: $color-primary;
+					}
+				}
+			}
+		}
+	}
+}
+
+//-----------------------------------------
+// Social
+//-----------------------------------------
+.g-footer {
+	&__social-container {
+		grid-area: social;
+
+		@include mq($mq-laptop-large, false) {
+			grid-column: span 2;
+			text-align: center;
+		}
+	}
+
+	&__social-text {
+		font-size: rem-calc(16);
+		margin-bottom: 10px;
+
+		@include mq($mq-laptop-large) {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+//-----------------------------------------
+// Helpers
+//-----------------------------------------
+.g-footer--separator {
+	display: none;
+
+	@include mq($mq-laptop-large) {
+		display: inline-block;
+	}
+
+	&::before {
+		content: '|';
+		margin: 0 4px;
+	}
+}

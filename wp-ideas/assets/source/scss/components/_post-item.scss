@@ -1,0 +1,72 @@
+//--------------------------------------------------------------
+// POST-ITEM
+//--------------------------------------------------------------
+.post__item {
+  margin-bottom: 25px;
+  display: flex;
+  display: grid;
+  gap: 0 20px;
+  grid-template-columns: auto;
+  grid-template-areas:
+    'img'
+    'header'
+    'excerpt'
+    'footer';
+
+  @media (min-width: 650px) {
+    grid-template-areas:
+      'img header'
+      'img excerpt'
+      'img footer';
+    grid-template-columns: minmax(250px, 300px) 1fr;
+  }
+
+  .post__img-wrapper {
+    grid-area: img;
+  }
+  header {
+    grid-area: header;
+  }
+  .post-excerpt {
+    grid-area: excerpt;
+    p {
+      margin: 0 0 10px;
+    }
+  }
+  footer {
+    grid-area: footer;
+
+    .post-tags {
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.post__img {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: 650px) {
+    width: 250px;
+  }
+
+  &:focus,
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.post__details {
+  grid-area: content;
+  .post-categories {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    a {
+      margin-right: 10px;
+    }
+    a:first-child {
+      margin-left: 10px;
+    }
+  }
+}

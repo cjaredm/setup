@@ -1,0 +1,255 @@
+//--------------------------------------------------------------
+// GUTENBERG BLOCKS
+//--------------------------------------------------------------
+
+//-----------------------------------------
+// Inline Elements
+//-----------------------------------------
+.wysiwyg-content {
+  padding-top: 0;
+  p {
+    img {
+      display: inline;
+
+      &.aligncenter {
+        display: block;
+      }
+
+      &.alignright {
+        display: block;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+//-----------------------------------------
+// Common Blocks
+//-----------------------------------------
+// Audio
+
+// Cover
+
+// File
+
+// Gallery
+.wysiwyg-content {
+  // <ul>
+  .wp-block-gallery {
+    list-style-type: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Heading
+
+// Image
+.wp-block-image {
+  .alignleft,
+  .alignright {
+    @include mq($mq-tablet, false) {
+      float: none;
+      margin: 0 0 $global-spacing 0;
+    }
+  }
+
+  .alignleft {
+    @include mq($mq-tablet) {
+      padding-right: $global-spacing;
+    }
+  }
+
+  .alignright {
+    @include mq($mq-tablet) {
+      padding-left: $global-spacing;
+    }
+  }
+
+  figcaption {
+    margin: ($global-spacing / 2) 0 0;
+  }
+}
+
+// List
+
+// Paragraph
+
+// Quote
+
+// Video
+
+//-----------------------------------------
+// Formatting
+//-----------------------------------------
+// Classic
+
+// Code
+.wp-block-code {
+}
+
+// Custom HTML
+
+// Preformatted
+
+// Pullquote
+
+// Table
+.wp-block-table {
+  &.aligncenter {
+  }
+
+  &.alignleft {
+  }
+
+  &.alignright {
+  }
+}
+
+// Verse
+
+//-----------------------------------------
+// Layout Elements
+//-----------------------------------------
+// Button
+.wp-block-button {
+  color: $color-black;
+
+  &__link {
+    @extend .button;
+  }
+}
+
+// Gutenberg color options
+// -- see editor-color-palette in functions.php
+$colors: (
+  'primary': $color-primary,
+  'secondary': $color-secondary,
+  'tertiary': $color-tertiary,
+  'white': $color-white,
+  'grey': $color-gray,
+  'black': $color-black,
+  'transparent': transparent,
+);
+
+@each $name, $color in $colors {
+  .has-#{$name}-color {
+    color: $color;
+  }
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
+}
+
+.wp-block-button__link {
+  border-radius: 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:not(.has-text-color) {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &:not(.has-background) {
+    $default: nth(nth($colors, 1), 2); // first color in $colors array
+    background-color: $default;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($default, 20%);
+    }
+  }
+
+  @each $name, $color in $colors {
+    &.has-#{$name}-color:hover,
+    &.has-#{$name}-color:focus {
+      color: $color;
+    }
+
+    &.has-#{$name}-background-color:hover,
+    &.has-#{$name}-background-color:focus {
+      background-color: lighten($color, 20%);
+    }
+  }
+}
+
+// Columns
+
+// Group
+
+// Media & Text
+.wp-block-media-text {
+  margin-bottom: $global-spacing;
+}
+
+// More
+
+// Page Break
+
+// Spacer
+
+// Separator
+
+//-----------------------------------------
+// Widgets
+//-----------------------------------------
+// Archives
+
+// Calendar
+
+// Categories
+
+// Latest Comments
+
+// Latest Posts
+
+// RSS
+
+// Search
+
+// Shortcode
+
+// Tag Cloud
+
+//-----------------------------------------
+// Embeds
+//-----------------------------------------
+.wp-block-embed {
+  $parent: &;
+
+  margin: 0 0 $global-spacing 0;
+
+  iframe {
+    display: block;
+    width: 100%;
+
+    @include mq($mq-tablet) {
+      max-width: 500px;
+    }
+  }
+
+  &.alignleft {
+    max-width: none;
+  }
+
+  &.aligncenter {
+    iframe {
+      margin: auto;
+    }
+  }
+
+  &.alignright {
+    max-width: none;
+
+    #{$parent}__wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
